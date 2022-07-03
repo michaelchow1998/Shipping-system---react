@@ -4,7 +4,7 @@ export default function Table({ datalist, area, bg }) {
   //status
   const state_color = (state) => {
     console.log(state);
-    if (state == "active") {
+    if (state === "active") {
       return "bg-green-400 text-green-800";
     } else {
       return "bg-gray-400 text-white px-[17px]";
