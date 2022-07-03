@@ -2,7 +2,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //import Nav Bar
-
+import NavBar from "./components/Navbar";
 //import Pages
 import Home from "./pages/Home";
 import SearchOrder from "./pages/SearchOrder";
@@ -14,6 +14,7 @@ import ChangePW from "./pages/account/ChangePW";
 function App() {
   return (
     <Router>
+      <NavBar />
       <Routes>
         //Guest function
         <Route element={<Home />} path={"/"}></Route>

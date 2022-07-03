@@ -1,7 +1,16 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import Breadcrumbs from "../components/Breadcrumbs";
 import Table from "../components/Table";
 
 function Locations() {
+  const pages = [
+    {
+      name: "Locations",
+      href: "locations",
+      current: true,
+    },
+  ];
+
   let [locationsNT, setLocationsNT] = useState([]);
   let [locationsKL, setLocationsKL] = useState([]);
   let [locationsHK, setLocationsHK] = useState([]);
@@ -49,7 +58,8 @@ function Locations() {
 
   return (
     <div className="">
-      <div className="mt-40">
+      <Breadcrumbs pages={pages} />
+      <div className="mt-10">
         {!loading && (
           <Table
             datalist={locationsNT}
