@@ -4,6 +4,9 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 
+// import image
+import lama from "../images/lama.png";
+
 const navigation = [
   { name: "Home", href: "/", current: true },
   { name: "Search Order", href: "search", current: false },
@@ -37,12 +40,12 @@ export default function NavBar() {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="block h-8 w-auto lg:hidden"
-                    src=".lama.png"
+                    src={lama}
                     alt="lama"
                   />
                   <img
                     className="hidden h-8 w-auto lg:block"
-                    src="lama.png"
+                    src={lama}
                     alt="lama"
                   />
                   <h1 className="hidden h-8 w-auto pl-2 pt-1 text-white lg:block">

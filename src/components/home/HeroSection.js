@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import hero from "../../images/hero.jpg";
+
 export default function HeroSection() {
   return (
     <div className="relative overflow-hidden bg-white">
@@ -52,7 +54,7 @@ export default function HeroSection() {
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
         <img
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full xl:object-top"
-          src="../images/hero.jpg"
+          src={hero}
           alt=""
         />
       </div>
