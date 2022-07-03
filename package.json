@@ -1,7 +1,7 @@
 {
+  "homepage": "https://michaelchow1998.github.io/Shipping-system-react/",
   "name": "Ship Sheep",
   "version": "0.0.0",
-  "homepage": "https://michaelchow1998.github.io/Shipping-system-react/",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
