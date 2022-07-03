@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Shipping-system-react/static/css/main.f4d57953.css",
+    "main.js": "/Shipping-system-react/static/js/main.998a8002.js",
+    "static/js/787.25124dad.chunk.js": "/Shipping-system-react/static/js/787.25124dad.chunk.js",
+    "index.html": "/Shipping-system-react/index.html",
+    "main.f4d57953.css.map": "/Shipping-system-react/static/css/main.f4d57953.css.map",
+    "main.998a8002.js.map": "/Shipping-system-react/static/js/main.998a8002.js.map",
+    "787.25124dad.chunk.js.map": "/Shipping-system-react/static/js/787.25124dad.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f4d57953.css",
+    "static/js/main.998a8002.js"
+  ]
+}
