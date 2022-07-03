@@ -3,8 +3,6 @@ import { HomeIcon } from "@heroicons/react/solid";
 import { useState, useEffect } from "react";
 
 export default function Breadcrumbs({ pages }) {
-  console.log(pages);
-
   return (
     <nav
       className="flex border-b border-gray-200 bg-white"
