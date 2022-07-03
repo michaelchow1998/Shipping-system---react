@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 import Breadcrumbs from "../components/Breadcrumbs";
-import SearchBox from "../components/SearchBox";
-import DetailsBox from "../components/DetailsBox";
+import SearchBox from "../components/search/SearchBox";
+import DetailsBox from "../components/search/DetailsBox";
 
 function SearchOrder() {
   const pages = [

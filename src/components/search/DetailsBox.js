@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import loadOrderDetails from "../api/guest/loadOrderDetails";
-import loadOrderLocationsName from "../api/guest/loadOrderLocationsName";
+import fetchOrderDetails from "../../api/guest/fetchOrderDetails";
+import fetchOrderLocationsName from "../../api/guest/fetchOrderLocationsName";
 import lama from "../images/lama256.png";
 
 export default function DetailsBox({ setSearched, searchId }) {
@@ -12,11 +12,15 @@ export default function DetailsBox({ setSearched, searchId }) {
   const [process, setProcess] = useState(false);
   const [delivery, setDelivery] = useState(false);
 
-  useEffect(async () => {
-    const orderDetailsJson = await loadOrderDetails(searchId);
+  useEffect( () => {
+    const fetchData = async () =>{
+      const data = await Promise.all 
+    }
+
+    const orderDetailsJson = await fetchOrderDetails(searchId);
     setDetails(orderDetailsJson.details);
     const idList = setLocationsId(orderDetailsJson);
-    setLocationsList(loadOrderLocationsName(idList));
+    setLocationsList(fetchOrderLocationsName(idList));
     loadNameToState(locationsList);
     console.log(pickupLocation, deliveryLocation);
   }, []);

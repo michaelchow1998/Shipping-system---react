@@ -1,4 +1,4 @@
-export default async function loadOrderLocationsName(idList) {
+export default async function fetchOrderLocationsName(idList) {
   const data = {
     pickup_location: idList[0],
     delivery_location: idList[1],
