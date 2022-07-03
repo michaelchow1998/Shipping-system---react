@@ -33,13 +33,13 @@ function Locations() {
         const json = await response.json();
 
         Object.keys(json).forEach((location) => {
-          if (json[location].area == "NT") {
+          if (json[location].area === "NT") {
             NTlists.push(json[location]);
           }
-          if (json[location].area == "KL") {
+          if (json[location].area === "KL") {
             KLlists.push(json[location]);
           }
-          if (json[location].area == "HK") {
+          if (json[location].area === "HK") {
             HKlists.push(json[location]);
           }
         });
