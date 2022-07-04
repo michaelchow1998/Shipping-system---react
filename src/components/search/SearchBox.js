@@ -1,6 +1,8 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
-import lama from "../images/lama256.png";
+
+//import lama from "../images/lama256.png";
+import lama from "../../images/lama256.png";
 
 export default function SearchBox({ setSearched, setSearchId }) {
   //   console.log("orderExist: ", orderExist);

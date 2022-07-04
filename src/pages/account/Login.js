@@ -1,9 +1,20 @@
-function Login() {
+import { Link } from "react-router-dom";
+import Breadcrumbs from "../../components/Breadcrumbs";
+import LoginForm from "../../components/login/LoginForm";
+
+export default function Login() {
+  const pages = [
+    {
+      name: "Login",
+      href: "login",
+      current: true,
+    },
+  ];
+
   return (
-    <div className="">
-      <h1 className="bg-yellow-300"> Login </h1>
-    </div>
+    <>
+      <Breadcrumbs pages={pages} />
+      <LoginForm />
+    </>
   );
 }
-
-export default Login;

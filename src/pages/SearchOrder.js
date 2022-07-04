@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Breadcrumbs from "../components/Breadcrumbs";
 import SearchBox from "../components/search/SearchBox";
@@ -12,10 +12,12 @@ function SearchOrder() {
       current: true,
     },
   ];
+  useEffect(() => {
+    console.log(searchId);
+  }, []);
+
   let [searched, setSearched] = useState(false);
   let [searchId, setSearchId] = useState("");
-  console.log("main state:", searched);
-  console.log("search id:", searchId);
   return (
     <div className="">
       <Breadcrumbs pages={pages} />

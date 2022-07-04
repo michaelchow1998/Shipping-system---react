@@ -1,6 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { HomeIcon } from "@heroicons/react/solid";
-import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export default function Breadcrumbs({ pages }) {
   return (
@@ -14,10 +14,10 @@ export default function Breadcrumbs({ pages }) {
       >
         <li className="flex">
           <div className="flex items-center">
-            <a href="home" className="text-gray-400 hover:text-black">
+            <Link to="/" className="text-gray-400 hover:text-black">
               <HomeIcon className="h-5 w-5 flex-shrink-0" aria-hidden="true" />
               <span className="sr-only">Home</span>
-            </a>
+            </Link>
           </div>
         </li>
         {pages.map((page) => (
