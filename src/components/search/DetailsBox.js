@@ -12,15 +12,22 @@ export default function DetailsBox({ setSearched, searchId }) {
   const [process, setProcess] = useState(false);
   const [delivery, setDelivery] = useState(false);
 
-  useEffect( () => {
-    const fetchData = async () =>{
-      const data = await Promise.all 
-    }
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await Promis.all([fetchOrderDetails(searchId)]);
+      const idList = setLocationsId(orderDetailsJson);
 
-    const orderDetailsJson = await fetchOrderDetails(searchId);
-    setDetails(orderDetailsJson.details);
-    const idList = setLocationsId(orderDetailsJson);
-    setLocationsList(fetchOrderLocationsName(idList));
+      const fetchLocationNameJson = async (orderDetailsJson) => {
+        const locationsName = await Promise.all(
+          fetchOrderLocationsName(idList)
+        );
+        return locationsName;
+      };
+
+      fetchData();
+      fetchLocationNameJson();
+    };
+
     loadNameToState(locationsList);
     console.log(pickupLocation, deliveryLocation);
   }, []);
