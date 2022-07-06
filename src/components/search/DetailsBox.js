@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
+import axios from "../../api/axios";
+
 //import Components
 import OrderDetailsCard from "./OrderDeatilsCard";
 
 //import img
-// import lama from "../images/lama256.png";
 import lama from "../../images/lama256.png";
 
 export default function DetailsBox({ setSearched, searchId }) {
@@ -20,14 +21,13 @@ export default function DetailsBox({ setSearched, searchId }) {
         console.log("DetailsBox Id: ", searchId);
         //load order as JSON format
         try {
-          const url = `http://localhost:8080/api/v1/guest/orders/${searchId}`;
+          const url = `guest/orders/${searchId}`;
           console.log(url);
-          const res = fetch(url, {
-            method: "GET",
-            headers: { "Content-Type": "application/json" },
-          })
-            .then((response) => response.json())
-            .then((data) => loadDateToState(data));
+          const res = axios
+            .get(url, {
+              headers: { "Content-Type": "application/json" },
+            })
+            .then(({ data }) => loadDateToState(data));
         } catch (error) {
           console.error(error);
         }

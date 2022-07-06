@@ -1,7 +1,59 @@
 import { Link } from "react-router-dom";
 import lama from "../../images/lama256.png";
+import { useState, useEffect } from "react";
+import axios from "../../api/axios";
 
 export default function LoginForm() {
+  const initialValues = { username: "", password: "" };
+  const [formValues, setFormValues] = useState(initialValues);
+  const [formErrors, setFormErrors] = useState({});
+  const [isSubmit, setIsSubmit] = useState(false);
+  const [responseError, setResponseError] = useState("");
+  const [jwtTokens, setJwtTokens] = useState({});
+
+  const handlerChange = (e) => {
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+    console.log(formValues);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormErrors(validate(formValues));
+    setIsSubmit(true);
+  };
+
+  useEffect(async () => {
+    if (Object.keys(formErrors).length === 0 && isSubmit) {
+      try {
+        console.log(JSON.stringify(formValues));
+        await fetch("http://localhost:8080/api/v1/login", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          mode: "no-cors",
+          body: JSON.stringify(formValues),
+        })
+          .then((response) => response.json())
+          .then((data) => setJwtTokens(data));
+      } catch (error) {
+        console.error(error);
+        setResponseError(error.value);
+      }
+    }
+    console.log("JWT: ", jwtTokens);
+  }, [formErrors]);
+
+  const validate = (values) => {
+    const errors = {};
+    if (!values.username) {
+      errors.username = "Username is required";
+    }
+    if (!values.password) {
+      errors.password = "Password is required";
+    }
+    return errors;
+  };
+
   return (
     <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="bg- sm:mx-auto sm:w-full sm:max-w-md">
@@ -13,28 +65,31 @@ export default function LoginForm() {
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
           Sign in to your account
         </h2>
+        <p>{responseError}</p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label
-                htmlFor="email"
+                htmlFor="username"
                 className="block text-sm font-medium text-gray-700"
               >
-                Email address
+                Username
               </label>
               <div className="mt-1">
                 <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
+                  id="username"
+                  name="username"
+                  type="username"
+                  autoComplete="username"
+                  value={formValues.username}
+                  onChange={handlerChange}
                   className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 />
               </div>
+              <p className="text-red-600">{formErrors.username}</p>
             </div>
 
             <div>
@@ -49,29 +104,16 @@ export default function LoginForm() {
                   id="password"
                   name="password"
                   type="password"
+                  value={formValues.password}
+                  onChange={handlerChange}
                   autoComplete="current-password"
-                  required
                   className="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
                 />
               </div>
+              <p className="text-red-600">{formErrors.password}</p>
             </div>
 
             <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                />
-                <label
-                  htmlFor="remember-me"
-                  className="ml-2 block text-sm text-gray-900"
-                >
-                  Remember me
-                </label>
-              </div>
-
               <div className="text-sm">
                 <Link
                   to="/changepw"

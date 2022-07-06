@@ -1,23 +1,21 @@
 import { useState } from "react";
+import axios from "../../api/axios";
 
 export default function SearchBar({ setSearched, setSearchId }) {
   const [filterDate, setFilterDate] = useState("");
   const searchBtnHandler = async () => {
     if (filterDate) {
       try {
-        const response = await fetch(
-          `http://localhost:8080/api/v1/guest/orders/${filterDate}/exists`,
-          {
-            method: "GET",
+        await axios
+          .get(`guest/orders/${filterDate}/exists`, {
             headers: { "Content-Type": "application/json" },
-          }
-        )
-          .then((response) => response.json())
-          .then((json) => {
-            if (json.exists === true) {
-              setSearchId(json.searchID);
+          })
+          .then(({ data }) => {
+            if (data.exists === true) {
+              console.log(data);
+              setSearchId(data.searchID);
               setTimeout(() => {
-                setSearched(json.exists);
+                setSearched(true);
               }, 500);
             }
           });

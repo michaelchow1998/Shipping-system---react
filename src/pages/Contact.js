@@ -17,7 +17,7 @@ export default function Contact() {
     setSent(false);
   };
   return (
-    <div className="bg-gray-100">
+    <div className="">
       <Breadcrumbs pages={pages} />
       <div className="mx-auto max-w-7xl py-6 px-4 sm:py-12 sm:px-6 lg:px-8">
         <div className="relative bg-white shadow-xl">

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "../api/axios";
 import Breadcrumbs from "../components/Breadcrumbs";
 import Table from "../components/Table";
 
@@ -23,24 +24,21 @@ function Locations() {
   useEffect(() => {
     async function loadData() {
       try {
-        const response = await fetch(
-          "http://localhost:8080/api/v1/guest/locations",
-          {
-            method: "GET",
-            headers: { "Content-Type": "application/json" },
-          }
-        );
-        const json = await response.json();
+        const response = await axios.get("/guest/locations", {
+          headers: { "Content-Type": "application/json" },
+        });
 
-        Object.keys(json).forEach((location) => {
-          if (json[location].area === "NT") {
-            NTlists.push(json[location]);
+        const { data } = response;
+        console.log(data);
+        Object.keys(data).forEach((location) => {
+          if (data[location].area === "NT") {
+            NTlists.push(data[location]);
           }
-          if (json[location].area === "KL") {
-            KLlists.push(json[location]);
+          if (data[location].area === "KL") {
+            KLlists.push(data[location]);
           }
-          if (json[location].area === "HK") {
-            HKlists.push(json[location]);
+          if (data[location].area === "HK") {
+            HKlists.push(data[location]);
           }
         });
 
