@@ -1,5 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Fragment } from "react";
+import { useNavigate } from "react-router-dom";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
@@ -18,7 +19,24 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function NavBar() {
+export default function NavBar({
+  isLogin,
+  setIsLogin,
+  isUserLogin,
+  isStaffLogin,
+  isAdminLogin,
+}) {
+  let navigate = useNavigate();
+  const routeChange = () => {
+    navigate(-1);
+  };
+
+  const logoutBtnHandler = () => {
+    localStorage.clear();
+    setIsLogin(false);
+    routeChange();
+  };
+
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -69,16 +87,50 @@ export default function NavBar() {
                         {item.name}
                       </Link>
                     ))}
+                    {isLogin && isUserLogin && (
+                      <Link
+                        className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                        to="/user/dashboard"
+                      >
+                        Dashboard
+                      </Link>
+                    )}
+                    {isLogin && isStaffLogin && (
+                      <Link
+                        className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                        to="/staff/dashboard"
+                      >
+                        Dashboard
+                      </Link>
+                    )}
+
+                    {isLogin && isAdminLogin && (
+                      <Link
+                        className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                        to="/admin/dashboard"
+                      >
+                        Dashboard
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <Link
-                  className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-800"
-                  to="/login"
-                >
-                  LogIn
-                </Link>
+                {isLogin ? (
+                  <button
+                    className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-800"
+                    onClick={logoutBtnHandler}
+                  >
+                    Log Out
+                  </button>
+                ) : (
+                  <Link
+                    className="rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-800"
+                    to="/login"
+                  >
+                    LogIn
+                  </Link>
+                )}
               </div>
             </div>
           </div>

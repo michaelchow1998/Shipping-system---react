@@ -1,20 +1,32 @@
-import { Link } from "react-router-dom";
-import lama from "../../images/lama256.png";
 import { useState, useEffect } from "react";
 import axios from "../../api/axios";
+import { useNavigate } from "react-router-dom";
 
-export default function LoginForm() {
+import { Link } from "react-router-dom";
+import lama from "../../images/lama256.png";
+
+export default function LoginForm({
+  isLogin,
+  setIsLogin,
+  setIsUserLogin,
+  setIsStaffLogin,
+  setIsAdminLogin,
+}) {
   const initialValues = { username: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
   const [responseError, setResponseError] = useState("");
   const [jwtTokens, setJwtTokens] = useState({});
+  const [isLoginSuccess, setIsLoginSuccess] = useState(false);
 
+  let navigate = useNavigate();
+  const routeChange = () => {
+    navigate("../", { replace: true });
+  };
   const handlerChange = (e) => {
     const { name, value } = e.target;
-    setFormValues({ ...formValues, [name]: value });
-    console.log(formValues);
+    setFormValues({ ...formValues, [name]: value.trim() });
   };
 
   const handleSubmit = (e) => {
@@ -26,22 +38,40 @@ export default function LoginForm() {
   useEffect(async () => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       try {
-        console.log(JSON.stringify(formValues));
-        await fetch("http://localhost:8080/api/v1/login", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          mode: "no-cors",
-          body: JSON.stringify(formValues),
-        })
-          .then((response) => response.json())
-          .then((data) => setJwtTokens(data));
+        await axios
+          .post(
+            "http://localhost:8080/api/v1/login",
+            JSON.stringify(formValues)
+          )
+          .then((data) => {
+            setJwtTokens(data.data);
+            setIsLoginSuccess(true);
+            routeChange();
+          });
       } catch (error) {
         console.error(error);
         setResponseError(error.value);
       }
     }
-    console.log("JWT: ", jwtTokens);
   }, [formErrors]);
+
+  useEffect(() => {
+    if (jwtTokens.roles == "[ROLE_ADMIN]") {
+      setIsLogin(true);
+      setIsAdminLogin(true);
+    }
+    if (jwtTokens.roles == "[ROLE_STAFF]") {
+      setIsLogin(true);
+      setIsStaffLogin(true);
+    }
+    if (jwtTokens.roles == "[ROLE_USER]") {
+      setIsLogin(true);
+      setIsUserLogin(true);
+    }
+    localStorage.setItem("roles", jwtTokens.roles);
+    localStorage.setItem("access_token", jwtTokens.access_token);
+    localStorage.setItem("refresh_token", jwtTokens.refresh_token);
+  }, [jwtTokens]);
 
   const validate = (values) => {
     const errors = {};
@@ -67,7 +97,6 @@ export default function LoginForm() {
         </h2>
         <p>{responseError}</p>
       </div>
-
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
           <form className="space-y-6" onSubmit={handleSubmit}>
