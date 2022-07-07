@@ -58,6 +58,7 @@ export default function RegisterFrom() {
       }
     }
   }, [formErrors]);
+
   const validate = (values) => {
     const errors = {};
     if (!values.username) {
@@ -93,9 +94,9 @@ export default function RegisterFrom() {
     if (!values.ans) {
       errors.ans = "Key Question must be answer";
     }
-
     return errors;
   };
+
   return (
     <div className="mx-auto w-full max-w-screen-xl space-y-6 space-x-4 px-4 sm:px-6 lg:px-8">
       <div className="bg-white px-4 py-5 shadow sm:rounded-lg sm:p-6">

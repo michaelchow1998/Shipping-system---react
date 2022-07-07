@@ -1,4 +1,4 @@
-export default function Table({ datalist, area, bg }) {
+export default function LocationTable({ datalist, area, bg }) {
   // console.log(props);
 
   //status

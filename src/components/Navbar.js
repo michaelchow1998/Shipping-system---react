@@ -25,15 +25,21 @@ export default function NavBar({
   isUserLogin,
   isStaffLogin,
   isAdminLogin,
+  setIsAdminLogin,
+  setIsStaffLogin,
+  setIsUserLogin,
 }) {
   let navigate = useNavigate();
   const routeChange = () => {
-    navigate(-1);
+    navigate("../", { replace: true });
   };
 
   const logoutBtnHandler = () => {
     localStorage.clear();
     setIsLogin(false);
+    setIsAdminLogin(false);
+    setIsStaffLogin(false);
+    setIsUserLogin(false);
     routeChange();
   };
 

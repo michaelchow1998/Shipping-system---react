@@ -3,10 +3,10 @@ import FeatureSession from "../components/home/FeatureSession";
 import LogoClouds from "../components/home/LogoClouds";
 import Footer from "../components/Footer";
 
-function Home() {
+function Home({ isLogin }) {
   return (
     <div className="">
-      <HeroSection />
+      <HeroSection isLogin={isLogin} />
       <FeatureSession />
       <LogoClouds />
       <Footer />

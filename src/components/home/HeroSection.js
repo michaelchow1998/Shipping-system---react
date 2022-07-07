@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 import hero from "../../images/hero.jpg";
 
-export default function HeroSection() {
+export default function HeroSection({ isLogin }) {
   return (
     <div className="relative overflow-hidden bg-white">
       <div className="mx-auto max-w-7xl">
@@ -31,17 +31,22 @@ export default function HeroSection() {
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
-                  <Link
-                    to="/login"
-                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
-                  >
-                    Login
-                  </Link>
+                  {!isLogin && (
+                    <Link
+                      to="/login"
+                      className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg"
+                    >
+                      Login
+                    </Link>
+                  )}
                 </div>
                 <div className="mt-3 sm:mt-0 sm:ml-3">
                   <Link
                     to="/locations"
-                    className="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-100 px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 md:px-10 md:text-lg"
+                    className={`flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-100 
+                    px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 md:px-10 md:text-lg ${
+                      isLogin ? "ml-20" : "ml-0"
+                    }`}
                   >
                     Locations Support
                   </Link>

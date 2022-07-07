@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "../api/axios";
 import Breadcrumbs from "../components/Breadcrumbs";
-import Table from "../components/Table";
+import LocationTable from "../components/location/LocationTable";
 
 function Locations() {
   const pages = [
@@ -59,17 +59,21 @@ function Locations() {
       <Breadcrumbs pages={pages} />
       <div className="mt-10">
         {!loading && (
-          <Table
+          <LocationTable
             datalist={locationsNT}
             area={"New Territories"}
             bg={"bg-green-500"}
           />
         )}
         {!loading && (
-          <Table datalist={locationsKL} area={"Kowloon"} bg={"bg-red-500"} />
+          <LocationTable
+            datalist={locationsKL}
+            area={"Kowloon"}
+            bg={"bg-red-500"}
+          />
         )}
         {!loading && (
-          <Table
+          <LocationTable
             datalist={locationsHK}
             area={"Hong Kong Island"}
             bg={"bg-blue-600"}

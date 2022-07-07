@@ -27,10 +27,13 @@ function App() {
         isStaffLogin={isStaffLogin}
         isAdminLogin={isAdminLogin}
         setIsLogin={setIsLogin}
+        setIsAdminLogin={setIsAdminLogin}
+        setIsStaffLogin={setIsStaffLogin}
+        setIsUserLogin={setIsUserLogin}
       />
       <Routes>
         //Guest function
-        <Route element={<Home />} path={"/"}></Route>
+        <Route element={<Home isLogin={isLogin} />} path={"/"}></Route>
         <Route element={<SearchOrder />} path={"/search"}></Route>
         <Route element={<Locations />} path={"/locations"}></Route>
         <Route element={<Contact />} path={"/contact"}></Route>
@@ -48,8 +51,13 @@ function App() {
           }
           path={"/login"}
         ></Route>
-        <Route element={<ChangePW />} path={"/request-password-reset"}></Route>
+        <Route
+          element={<ChangePW />}
+          path={"/login/request-password-reset"}
+        ></Route>
         //dashboard
+        <Route element={<UserDashboard />} path={"/admin/dashboard"}></Route>
+        <Route element={<UserDashboard />} path={"/staff/dashboard"}></Route>
         <Route element={<UserDashboard />} path={"/user/dashboard"}></Route>
       </Routes>
     </Router>
