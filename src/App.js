@@ -84,7 +84,7 @@ function App() {
         <Route element={<StaffDashboard />} path={"/staff/dashboard"}></Route>
         <Route element={<UserDashboard />} path={"/user/dashboard"}></Route>
         //404
-        <Route path="*" element={<NotFoundPage />} />
+        <Route element={<NotFoundPage />} path={"*"} />
       </Routes>
     </Router>
   );
