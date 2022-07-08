@@ -22,7 +22,7 @@ export default function DetailsBox({ setSearched, searchId }) {
         //load order as JSON format
         try {
           const url = `guest/orders/${searchId}`;
-          console.log(url);
+
           const res = axios
             .get(url, {
               headers: { "Content-Type": "application/json" },
@@ -43,7 +43,6 @@ export default function DetailsBox({ setSearched, searchId }) {
   }, []);
 
   const loadDateToState = (data) => {
-    console.log(data);
     setOrder(data);
     setOrderState([
       data.details.pickedUp,

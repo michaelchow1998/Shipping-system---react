@@ -12,9 +12,6 @@ function SearchOrder() {
       current: true,
     },
   ];
-  useEffect(() => {
-    console.log(searchId);
-  }, []);
 
   let [searched, setSearched] = useState(false);
   let [searchId, setSearchId] = useState("");

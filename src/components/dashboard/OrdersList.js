@@ -4,12 +4,6 @@ export default function OrdersList({
   setSearched,
   setSearchId,
 }) {
-  console.log(data);
-
-  const btnHandler = (order) => {
-    console.log(order);
-    // setSearched(true);
-  };
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
@@ -50,7 +44,6 @@ export default function OrdersList({
                 <tbody className="divide-y divide-gray-200 bg-white">
                   {Object.keys(data).map((order) => (
                     <tr key={data[order].searchId}>
-                      {console.log(order)}
                       <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm sm:pl-6">
                         <div className="flex items-center">
                           <div className="ml-4">

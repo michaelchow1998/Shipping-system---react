@@ -29,7 +29,7 @@ function Locations() {
         });
 
         const { data } = response;
-        console.log(data);
+
         Object.keys(data).forEach((location) => {
           if (data[location].area === "NT") {
             NTlists.push(data[location]);

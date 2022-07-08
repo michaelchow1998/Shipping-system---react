@@ -5,7 +5,6 @@ import SearchBar from "./SearchBar";
 import lama from "../../images/lama256.png";
 
 export default function SearchBox({ setSearched, setSearchId }) {
-  //   console.log("orderExist: ", orderExist);
   return (
     <div className="">
       <div className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 sm:pt-10 lg:px-8">

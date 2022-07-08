@@ -9,7 +9,6 @@ export async function refreshToken() {
     })
     .then((response) => {
       if (response.data.accessToken) {
-        console.log(response.data);
         localStorage.setItem(
           "access_token",
           JSON.stringify(response.data.access_token)

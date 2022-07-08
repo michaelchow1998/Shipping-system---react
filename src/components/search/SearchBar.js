@@ -13,7 +13,6 @@ export default function SearchBar({ setSearched, setSearchId }) {
           })
           .then(({ data }) => {
             if (data.exists === true) {
-              console.log(data);
               setSearchId(data.searchID);
               setTimeout(() => {
                 setSearchError(false);

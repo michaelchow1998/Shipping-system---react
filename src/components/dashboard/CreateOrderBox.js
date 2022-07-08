@@ -41,7 +41,6 @@ export default function CreateOrderBox() {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
       setOrder(await CreateOrder(formValues));
       setIsSuccess(true);
-      console.log("order : ", order);
     }
   }, [formErrors]);
 

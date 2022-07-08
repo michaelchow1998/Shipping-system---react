@@ -67,7 +67,6 @@ export default function LoginForm({
       setIsLogin(true);
       setIsUserLogin(true);
     }
-    console.log("username: ", formValues);
 
     localStorage.setItem("roles", jwtTokens.roles);
     localStorage.setItem("username", formValues.username);

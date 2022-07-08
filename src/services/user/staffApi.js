@@ -11,7 +11,6 @@ export async function CreateOrder(body) {
       AUTHORIZATION: `Bearer ${localStorage.getItem("access_token")}`,
     },
   };
-  console.log(url, body);
   const res = await axios.post(url, JSON.stringify(body), axiosConfig);
   if (res.error) {
     throw new Error(res.error);
@@ -21,7 +20,7 @@ export async function CreateOrder(body) {
 
 export async function UpdateProcessState(body) {
   const url = API_URL + body.state;
-  console.log(url);
+
   const axiosConfig = {
     headers: {
       "Content-Type": "application/json",

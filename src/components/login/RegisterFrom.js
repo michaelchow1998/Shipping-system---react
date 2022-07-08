@@ -31,7 +31,6 @@ export default function RegisterFrom() {
   const handlerChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
-    console.log("Form Values: ", formValues);
   };
 
   const handleSubmit = (e) => {
@@ -42,7 +41,6 @@ export default function RegisterFrom() {
 
   useEffect(async () => {
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(JSON.stringify(formValues));
       try {
         await axios
           .post("https://shipsheep.herokuapp.com/api/v1/login", {
