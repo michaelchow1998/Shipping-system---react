@@ -45,7 +45,7 @@ export default function SearchBar({ setSearched, setSearchId }) {
           id="search"
           onChange={handleChange}
           value={filterDate}
-          placeholder="Please enter your order search ID"
+          placeholder="Enter order search ID"
           className="block w-full rounded-md border-gray-300 py-1.5 pr-36 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
         />
       </div>
