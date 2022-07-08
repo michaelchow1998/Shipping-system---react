@@ -12,6 +12,7 @@ export default function DetailsBox({ setSearched, searchId }) {
   //Order details with tracking details
   const [order, setOrder] = useState({});
   const [openList, setOpenList] = useState(false);
+
   //Order state (pickedUp, processing, delivered)
   const [orderState, setOrderState] = useState([false, false, false]);
 

@@ -3,6 +3,7 @@ import axios from "../../api/axios";
 
 export default function SearchBar({ setSearched, setSearchId }) {
   const [filterDate, setFilterDate] = useState("");
+  const [searchError, setSearchError] = useState(false);
   const searchBtnHandler = async () => {
     if (filterDate) {
       try {
@@ -15,8 +16,11 @@ export default function SearchBar({ setSearched, setSearchId }) {
               console.log(data);
               setSearchId(data.searchID);
               setTimeout(() => {
+                setSearchError(false);
                 setSearched(true);
               }, 500);
+            } else {
+              setSearchError(true);
             }
           });
       } catch (error) {
@@ -61,6 +65,9 @@ export default function SearchBar({ setSearched, setSearchId }) {
         >
           Search
         </button>
+      </div>
+      <div className="relative bottom-32 text-xl font-semibold text-red-600">
+        {searchError ? "The Order Search Id may not correct" : ""}
       </div>
     </div>
   );
