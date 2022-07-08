@@ -13,7 +13,9 @@ import ChangePW from "./pages/account/ChangePW";
 import Contact from "./pages/Contact";
 
 //dashboard
+import StaffDashboard from "./pages/dashboard/StaffDashboard";
 import UserDashboard from "./pages/dashboard/UserDashboard";
+
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [isUserLogin, setIsUserLogin] = useState(false);
@@ -57,7 +59,7 @@ function App() {
         ></Route>
         //dashboard
         <Route element={<UserDashboard />} path={"/admin/dashboard"}></Route>
-        <Route element={<UserDashboard />} path={"/staff/dashboard"}></Route>
+        <Route element={<StaffDashboard />} path={"/staff/dashboard"}></Route>
         <Route element={<UserDashboard />} path={"/user/dashboard"}></Route>
       </Routes>
     </Router>

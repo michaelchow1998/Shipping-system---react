@@ -18,7 +18,6 @@ export default function DetailsBox({ setSearched, searchId }) {
   useEffect(async () => {
     await setTimeout(() => {
       const fetchData = async (searchId) => {
-        console.log("DetailsBox Id: ", searchId);
         //load order as JSON format
         try {
           const url = `guest/orders/${searchId}`;

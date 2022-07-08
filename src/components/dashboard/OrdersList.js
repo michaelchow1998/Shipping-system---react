@@ -1,7 +1,15 @@
-export default function OrdersList({ data, description }) {
+export default function OrdersList({
+  data,
+  description,
+  setSearched,
+  setSearchId,
+}) {
   console.log(data);
 
-  const btnHandler = () => {};
+  const btnHandler = (order) => {
+    console.log(order);
+    // setSearched(true);
+  };
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
@@ -73,7 +81,10 @@ export default function OrdersList({ data, description }) {
                       </td>
                       <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                         <button
-                          onClick={btnHandler}
+                          onClick={() => {
+                            setSearchId(data[order].searchId);
+                            setSearched(true);
+                          }}
                           className="text-indigo-600 hover:text-indigo-900"
                         >
                           Details

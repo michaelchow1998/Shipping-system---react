@@ -1,15 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "../../api/axios";
 import { UserAPI } from "../../services/user/userApi";
 import Breadcrumbs from "../../components/Breadcrumbs";
 import OrdersList from "../../components/dashboard/OrdersList";
-// const navigation = [
-//   { name: "Related order", handler: { relatedHandler }, url: "" },
-//   { name: "Sent order", handler: {}, url: "sent" },
-//   { name: "Receipted order", handler: {}, url: "receipted" },
-//   { name: "Finished order", handler: {}, url: "finished" },
-//   { name: "Unfinished order", handler: {}, url: "unfinished" },
-// ];
+import DetailsBox from "../../components/search/DetailsBox";
+
 const pages = [
   {
     name: "Dashboard",
@@ -24,6 +19,8 @@ const body = {
 export default function UserDashboard() {
   const [description, setDescription] = useState("");
   const [data, setData] = useState({});
+  const [searched, setSearched] = useState(false);
+  const [searchId, setSearchId] = useState("");
   const relatedHandler = async () => {
     const res = await UserAPI("", body);
     setDescription("related for you");
@@ -51,6 +48,11 @@ export default function UserDashboard() {
     setDescription("is unfinished");
     setData(res);
   };
+  useEffect(async () => {
+    const res = await UserAPI("", body);
+    setDescription("related for you");
+    setData(res);
+  }, []);
 
   return (
     <div className="flex flex-col">
@@ -80,7 +82,17 @@ export default function UserDashboard() {
           </div>
         </div>
         <div className="w-[70%]">
-          <OrdersList data={data} description={description} />
+          {searched && (
+            <DetailsBox setSearched={setSearched} searchId={searchId} />
+          )}
+          {!searched && (
+            <OrdersList
+              data={data}
+              description={description}
+              setSearchId={setSearchId}
+              setSearched={setSearched}
+            />
+          )}
         </div>
       </div>
     </div>
