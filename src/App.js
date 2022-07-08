@@ -30,14 +30,14 @@ function App() {
       refreshToken();
       if (localStorage.getItem("access_token")) {
         setIsLogin(true);
-        if (localStorage.getItem("roles") == "[ROLE_ADMIN]") {
+        if (localStorage.getItem("roles") === "[ROLE_ADMIN]") {
           setIsStaffLogin(true);
           setIsUserLogin(true);
         }
-        if (localStorage.getItem("roles") == "[ROLE_STAFF]") {
+        if (localStorage.getItem("roles") === "[ROLE_STAFF]") {
           setIsStaffLogin(true);
         }
-        if (localStorage.getItem("roles") == "[ROLE_USER]") {
+        if (localStorage.getItem("roles") === "[ROLE_USER]") {
           setIsUserLogin(true);
         }
       }
@@ -84,7 +84,7 @@ function App() {
         <Route element={<StaffDashboard />} path={"/staff/dashboard"}></Route>
         <Route element={<UserDashboard />} path={"/user/dashboard"}></Route>
         //404
-        <Route element={<NotFoundPage />} path={"/*"}></Route>
+        <Route element={<NotFoundPage />} path={"*"}></Route>
       </Routes>
     </Router>
   );
