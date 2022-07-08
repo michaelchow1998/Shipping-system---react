@@ -8,7 +8,6 @@ export default function Login({
   setIsLogin,
   setIsUserLogin,
   setIsStaffLogin,
-  setIsAdminLogin,
 }) {
   const pages = [
     {
@@ -28,7 +27,6 @@ export default function Login({
           setIsLogin={setIsLogin}
           setIsUserLogin={setIsUserLogin}
           setIsStaffLogin={setIsStaffLogin}
-          setIsAdminLogin={setIsAdminLogin}
         />
       )}
     </>

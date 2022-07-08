@@ -24,8 +24,6 @@ export default function NavBar({
   setIsLogin,
   isUserLogin,
   isStaffLogin,
-  isAdminLogin,
-  setIsAdminLogin,
   setIsStaffLogin,
   setIsUserLogin,
 }) {
@@ -37,7 +35,6 @@ export default function NavBar({
   const logoutBtnHandler = () => {
     localStorage.clear();
     setIsLogin(false);
-    setIsAdminLogin(false);
     setIsStaffLogin(false);
     setIsUserLogin(false);
     routeChange();
@@ -105,15 +102,6 @@ export default function NavBar({
                       <Link
                         className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
                         to="/staff/dashboard"
-                      >
-                        Dashboard
-                      </Link>
-                    )}
-
-                    {isLogin && isAdminLogin && (
-                      <Link
-                        className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-                        to="/admin/dashboard"
                       >
                         Dashboard
                       </Link>

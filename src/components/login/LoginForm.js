@@ -10,7 +10,6 @@ export default function LoginForm({
   setIsLogin,
   setIsUserLogin,
   setIsStaffLogin,
-  setIsAdminLogin,
 }) {
   const initialValues = { username: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
@@ -58,7 +57,8 @@ export default function LoginForm({
   useEffect(() => {
     if (jwtTokens.roles == "[ROLE_ADMIN]") {
       setIsLogin(true);
-      setIsAdminLogin(true);
+      setIsStaffLogin(true);
+      setIsUserLogin(true);
     }
     if (jwtTokens.roles == "[ROLE_STAFF]") {
       setIsLogin(true);

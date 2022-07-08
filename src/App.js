@@ -1,6 +1,7 @@
 //import Route
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { refreshToken } from "./services/token/auth.service";
 //import Nav Bar
 import NavBar from "./components/Navbar";
 //import Pages
@@ -20,16 +21,35 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [isUserLogin, setIsUserLogin] = useState(false);
   const [isStaffLogin, setIsStaffLogin] = useState(false);
-  const [isAdminLogin, setIsAdminLogin] = useState(false);
+
+  useEffect(() => {
+    try {
+      refreshToken();
+      if (localStorage.getItem("access_token")) {
+        setIsLogin(true);
+        if (localStorage.getItem("roles") == "[ROLE_ADMIN]") {
+          setIsStaffLogin(true);
+          setIsUserLogin(true);
+        }
+        if (localStorage.getItem("roles") == "[ROLE_STAFF]") {
+          setIsStaffLogin(true);
+        }
+        if (localStorage.getItem("roles") == "[ROLE_USER]") {
+          setIsUserLogin(true);
+        }
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }, []);
+
   return (
     <Router>
       <NavBar
         isLogin={isLogin}
         isUserLogin={isUserLogin}
         isStaffLogin={isStaffLogin}
-        isAdminLogin={isAdminLogin}
         setIsLogin={setIsLogin}
-        setIsAdminLogin={setIsAdminLogin}
         setIsStaffLogin={setIsStaffLogin}
         setIsUserLogin={setIsUserLogin}
       />
@@ -48,7 +68,6 @@ function App() {
               setIsLogin={setIsLogin}
               setIsUserLogin={setIsUserLogin}
               setIsStaffLogin={setIsStaffLogin}
-              setIsAdminLogin={setIsAdminLogin}
             />
           }
           path={"/login"}

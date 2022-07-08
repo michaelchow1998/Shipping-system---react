@@ -2,27 +2,20 @@ import axios from "../../api/axios";
 
 const API_URL = "http://localhost:8080/api/v1/";
 
-class AuthService {
-  login(username, password) {
-    return axios
-      .post(API_URL + "login", {
-        username,
-        password,
-      })
-      .then((response) => {
-        if (response.data.accessToken) {
-          localStorage.setItem("user", JSON.stringify(response.data));
-        }
-      });
-  }
+export async function refreshToken() {
+  const res = await axios
+    .get(API_URL + "token/refresh", {
+      Authorization: "Bearer " + localStorage.getItem("refresh_token"),
+    })
+    .then((response) => {
+      if (response.data.accessToken) {
+        console.log(response.data);
+        localStorage.setItem(
+          "access_token",
+          JSON.stringify(response.data.access_token)
+        );
+      }
+    });
 
-  logout() {
-    localStorage.removeItem("user");
-  }
-
-  getCurrentUser() {
-    return JSON.parse(localStorage.getItem("user"));
-  }
+  return res;
 }
-
-export default new AuthService();
