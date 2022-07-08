@@ -6,13 +6,10 @@ import UpdateStateBox from "../../components/dashboard/UpdateStateBox";
 const pages = [
   {
     name: "Dashboard",
-    href: "/admin/dashboard",
+    href: "/staff/dashboard",
     current: true,
   },
 ];
-const body = {
-  username: "michael",
-};
 
 export default function StaffDashboard() {
   const [createPageOpen, setCreatePageOpen] = useState(true);
@@ -47,7 +44,7 @@ export default function StaffDashboard() {
         </div>
         <div className="w-[70%]">
           {createPageOpen && <CreateOrderBox />}
-          {!createPageOpen && <UpdateStateBox />}
+          {updateStatePageOpen && <UpdateStateBox />}
         </div>
       </div>
     </div>

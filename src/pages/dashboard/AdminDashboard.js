@@ -13,34 +13,6 @@ const pages = [
 const body = {
   username: "michael",
 };
-const relatedHandler = async () => {
-  const res = await UserAPI("", body);
-
-  setData(res);
-};
-const sentHandler = async () => {
-  const res = await UserAPI("sent", body);
-
-  setData(res);
-};
-const receiptedHandler = async () => {
-  const res = await UserAPI("receipted", body);
-
-  setData(res);
-};
-
-const finishedHandler = async () => {
-  const res = await UserAPI("finished", body);
-
-  setData(res);
-};
-
-const unfinishedHandler = async () => {
-  const res = await UserAPI("unfinished", body);
-
-  setData(res);
-};
-
 export default function AdminDashboard() {
   const [data, setData] = useState({});
   const relatedHandler = async () => {

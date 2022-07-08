@@ -12,9 +12,6 @@ const pages = [
     current: true,
   },
 ];
-const body = {
-  username: "michael",
-};
 
 export default function UserDashboard() {
   const [description, setDescription] = useState("");
@@ -22,34 +19,35 @@ export default function UserDashboard() {
   const [searched, setSearched] = useState(false);
   const [searchId, setSearchId] = useState("");
   const relatedHandler = async () => {
-    const res = await UserAPI("", body);
+    const res = await UserAPI("");
     setDescription("related for you");
     setData(res);
   };
   const sentHandler = async () => {
-    const res = await UserAPI("sent", body);
+    const res = await UserAPI("sent");
     setDescription("sent by you");
+
     setData(res);
   };
   const receiptedHandler = async () => {
-    const res = await UserAPI("receipted", body);
+    const res = await UserAPI("receipted");
     setDescription("receipted by you");
     setData(res);
   };
 
   const finishedHandler = async () => {
-    const res = await UserAPI("finished", body);
+    const res = await UserAPI("finished");
     setDescription("is finished");
     setData(res);
   };
 
   const unfinishedHandler = async () => {
-    const res = await UserAPI("unfinished", body);
+    const res = await UserAPI("unfinished");
     setDescription("is unfinished");
     setData(res);
   };
   useEffect(async () => {
-    const res = await UserAPI("", body);
+    const res = await UserAPI("");
     setDescription("related for you");
     setData(res);
   }, []);
