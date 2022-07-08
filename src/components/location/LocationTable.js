@@ -4,9 +4,9 @@ export default function LocationTable({ datalist, area, bg }) {
   //status
   const state_color = (state) => {
     if (state === "active") {
-      return "bg-green-400 text-green-800";
+      return "bg-green-400 text-white";
     } else {
-      return "bg-gray-400 text-white px-[17px]";
+      return "bg-gray-400 text-black px-[17px]";
     }
   };
 
