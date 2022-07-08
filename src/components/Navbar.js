@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 // import image
 import lama from "../images/lama.png";
 
-const navigation = [
+const initNavigation = [
   { name: "Home", href: "/", current: true },
   { name: "Search Order", href: "search", current: false },
   { name: "Locations", href: "locations", current: false },
@@ -27,6 +27,7 @@ export default function NavBar({
   setIsStaffLogin,
   setIsUserLogin,
 }) {
+  const [navigation, setNavigation] = useState(initNavigation);
   let navigate = useNavigate();
   const routeChange = () => {
     navigate("../", { replace: true });
@@ -144,9 +145,27 @@ export default function NavBar({
                   )}
                   aria-current={item.current ? "page" : undefined}
                 >
-                  {item.name}
+                  <Link key={item.name} to={item.href}>
+                    {item.name}
+                  </Link>
                 </Disclosure.Button>
               ))}
+              {isLogin && isUserLogin && (
+                <Link
+                  className="block rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                  to="/user/dashboard"
+                >
+                  Dashboard
+                </Link>
+              )}
+              {isLogin && isStaffLogin && (
+                <Link
+                  className="block rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+                  to="/staff/dashboard"
+                >
+                  Dashboard
+                </Link>
+              )}
             </div>
           </Disclosure.Panel>
         </>
