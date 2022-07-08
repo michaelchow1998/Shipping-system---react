@@ -15,9 +15,8 @@ export default function LoginForm({
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
-  const [responseError, setResponseError] = useState("");
+  const [responseError, setResponseError] = useState(false);
   const [jwtTokens, setJwtTokens] = useState({});
-  const [isLoginSuccess, setIsLoginSuccess] = useState(false);
 
   let navigate = useNavigate();
   const routeChange = () => {
@@ -44,12 +43,12 @@ export default function LoginForm({
           )
           .then((data) => {
             setJwtTokens(data.data);
-            setIsLoginSuccess(true);
             routeChange();
           });
+        setResponseError(false);
       } catch (error) {
         console.error(error);
-        setResponseError(error.value);
+        setResponseError(true);
       }
     }
   }, [formErrors]);
@@ -98,7 +97,9 @@ export default function LoginForm({
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
           Sign in to your account
         </h2>
-        <p>{responseError}</p>
+        <p className="mt-2 flex justify-center text-lg font-semibold text-red-600">
+          {responseError && "Some Login Information may not correct"}
+        </p>
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
