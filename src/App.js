@@ -17,6 +17,9 @@ import Contact from "./pages/Contact";
 import StaffDashboard from "./pages/dashboard/StaffDashboard";
 import UserDashboard from "./pages/dashboard/UserDashboard";
 
+//404 Page
+import NotFoundPage from "./pages/NotFoundPage";
+
 function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [isUserLogin, setIsUserLogin] = useState(false);
@@ -80,6 +83,8 @@ function App() {
         <Route element={<UserDashboard />} path={"/admin/dashboard"}></Route>
         <Route element={<StaffDashboard />} path={"/staff/dashboard"}></Route>
         <Route element={<UserDashboard />} path={"/user/dashboard"}></Route>
+        //404
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
   );
