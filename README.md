@@ -4,11 +4,7 @@ https://shipsheep.netlify.app/
 
 ## Introduction:
 
-### ShipSheep is a shipping order web app. Which provide a platform let User to monitor the order state and get the order information.
-
-### Moreover, the app also note down all past order history to let user track the recode. For Staff, they can use the website to
-
-### create a shipping order and update the order state.
+### ShipSheep is a shipping order web app. Which provide a platform let User to monitor the order state and get the order information.Moreover, the app also note down all past order history to let user track the recode. For Staff, they can use the website to create a shipping order and update the order state.
 
 ## Tech
 
@@ -33,7 +29,7 @@ https://shipsheep.netlify.app/
 
 ### Admin Account:
 
-- michael:
+- Michael:
   - ac: michael
   - pw: 1234
   - email: michael@gmail.com
@@ -41,7 +37,7 @@ https://shipsheep.netlify.app/
 
 ### Staff Account :
 
-- joe
+- Joe
   - ac: joe
   - pw: 1234
   - email: joe@gmail.com
@@ -49,21 +45,21 @@ https://shipsheep.netlify.app/
 
 ### User Account :
 
-- gary
+- Gary
 
   - ac: gary
   - pw: 1234
   - email: gary@gmail.com
   - key question ans: test
 
-- mary
+- Mary
 
   - ac: mary
   - pw: 1234
   - email: mak@gmail.com
   - key question ans: test
 
-- edmond
+- Edmond
   - ac: edmond
   - pw: 1234
   - email: edmond@gmail.com
