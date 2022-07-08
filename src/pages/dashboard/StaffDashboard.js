@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Breadcrumbs from "../../components/Breadcrumbs";
+
 import CreateOrderBox from "../../components/dashboard/CreateOrderBox";
+import UpdateStateBox from "../../components/dashboard/UpdateStateBox";
 const pages = [
   {
     name: "Dashboard",
@@ -43,7 +45,10 @@ export default function StaffDashboard() {
             </div>
           </div>
         </div>
-        <div className="w-[70%]">{createPageOpen && <CreateOrderBox />}</div>
+        <div className="w-[70%]">
+          {createPageOpen && <CreateOrderBox />}
+          {!createPageOpen && <UpdateStateBox />}
+        </div>
       </div>
     </div>
   );

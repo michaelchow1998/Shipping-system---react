@@ -19,7 +19,9 @@ export async function CreateOrder(body) {
   return res.data;
 }
 
-export async function UpdateProcessState(url, body) {
+export async function UpdateProcessState(body) {
+  const url = API_URL + body.state;
+  console.log(url);
   const axiosConfig = {
     headers: {
       "Content-Type": "application/json",
@@ -28,7 +30,7 @@ export async function UpdateProcessState(url, body) {
     },
   };
 
-  const res = await axios.put(API_URL + url, JSON.stringify(body), axiosConfig);
+  const res = await axios.put(url, JSON.stringify(body), axiosConfig);
   if (res.error) {
     throw new Error(res.error);
   }
