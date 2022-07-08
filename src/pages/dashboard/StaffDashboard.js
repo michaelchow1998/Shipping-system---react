@@ -1,8 +1,6 @@
 import { useState } from "react";
-import axios from "../../api/axios";
-import { UserAPI } from "../../services/user/userApi";
 import Breadcrumbs from "../../components/Breadcrumbs";
-
+import CreateOrderBox from "../../components/dashboard/CreateOrderBox";
 const pages = [
   {
     name: "Dashboard",
@@ -15,7 +13,7 @@ const body = {
 };
 
 export default function StaffDashboard() {
-  const [createPageOpen, setCreatePageOpen] = useState(false);
+  const [createPageOpen, setCreatePageOpen] = useState(true);
   const [updateStatePageOpen, setUpdateStatePageOpen] = useState(false);
 
   const createBtnHandler = () => {
@@ -45,7 +43,7 @@ export default function StaffDashboard() {
             </div>
           </div>
         </div>
-        <div className="w-[70%]"></div>
+        <div className="w-[70%]">{createPageOpen && <CreateOrderBox />}</div>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 import { CheckCircleIcon, XIcon } from "@heroicons/react/solid";
 
-export default function Alerts() {
+export default function Alerts({ message }) {
   return (
     <div className="rounded-md bg-green-50 p-4">
       <div className="flex">
@@ -12,10 +12,11 @@ export default function Alerts() {
         </div>
         <div className="ml-3">
           <p className="text-sm font-medium text-green-800">
-            Successfully change your password.
+            {message && `${message}`}
+            {!message && "Successfully change your password."}
           </p>
           <p className="text-sm font-medium text-green-800">
-            After 5 second your will go back Login page.
+            {!message && "After 5 second your will go back Login page."}
           </p>
         </div>
         <div className="ml-auto pl-3">
