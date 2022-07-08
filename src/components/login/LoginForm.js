@@ -38,7 +38,7 @@ export default function LoginForm({
       try {
         await axios
           .post(
-            "http://localhost:8080/api/v1/login",
+            "https://shipsheep.herokuapp.com/api/v1/login",
             JSON.stringify(formValues)
           )
           .then((data) => {

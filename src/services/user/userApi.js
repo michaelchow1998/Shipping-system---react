@@ -1,6 +1,6 @@
 import axios from "../../api/axios";
 
-const API_URL = "http://localhost:8080/api/v1/orders/";
+const API_URL = "https://shipsheep.herokuapp.com/api/v1/orders/";
 
 export async function UserAPI(url) {
   const body = {

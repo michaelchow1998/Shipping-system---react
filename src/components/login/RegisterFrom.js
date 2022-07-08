@@ -45,7 +45,7 @@ export default function RegisterFrom() {
       console.log(JSON.stringify(formValues));
       try {
         await axios
-          .post("http://localhost:8080/api/v1/login", {
+          .post("https://shipsheep.herokuapp.com/api/v1/login", {
             headers: { "Content-Type": "application/json" },
             mode: "no-cors",
             body: JSON.stringify(formValues),

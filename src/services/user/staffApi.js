@@ -1,6 +1,6 @@
 import axios from "../../api/axios";
 
-const API_URL = "http://localhost:8080/api/v1/staff/";
+const API_URL = "https://shipsheep.herokuapp.com/api/v1/staff/";
 
 export async function CreateOrder(body) {
   const url = API_URL + "orders/shipping";

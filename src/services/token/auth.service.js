@@ -1,6 +1,6 @@
 import axios from "../../api/axios";
 
-const API_URL = "http://localhost:8080/api/v1/";
+const API_URL = "https://shipsheep.herokuapp.com/api/v1/";
 
 export async function refreshToken() {
   const res = await axios

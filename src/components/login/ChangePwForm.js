@@ -57,7 +57,7 @@ export default function ChangePwForm() {
       try {
         await axios
           .put(
-            "http://localhost:8080/api/v1/guest/changepw",
+            "https://shipsheep.herokuapp.com/api/v1/guest/changepw",
             JSON.stringify(formValues),
             { headers: { "Content-Type": "application/json" } }
           )
