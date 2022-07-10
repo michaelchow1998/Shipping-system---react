@@ -44,9 +44,7 @@ export default function HeroSection({ isLogin }) {
                   <Link
                     to="/locations"
                     className={`flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-100 
-                    px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 md:px-10 md:text-lg ${
-                      isLogin ? "ml-20" : "ml-0"
-                    }`}
+                    px-8 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200 md:py-4 md:px-10 md:text-lg`}
                   >
                     Locations Support
                   </Link>
