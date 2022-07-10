@@ -33,13 +33,13 @@ export default function Breadcrumbs({ pages }) {
               >
                 <path d="M.293 0l22 22-22 22h1.414l22-22-22-22H.293z" />
               </svg>
-              <a
-                href={page.href}
+              <Link
+                to={page.href}
                 className="ml-4 text-sm font-bold text-gray-500 hover:text-black"
                 aria-current={page.current ? "page" : undefined}
               >
                 {page.name}
-              </a>
+              </Link>
             </div>
           </li>
         ))}

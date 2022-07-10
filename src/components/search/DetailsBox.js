@@ -113,36 +113,36 @@ export default function DetailsBox({ setSearched, searchId }) {
               </div>
               {/* //Logos for the Order State and Show location names */}
               <div className="flex">
-                <div className="mt-4 ml-4 flex flex-shrink-0 flex-grow px-2 lg:ml-4 lg:flex-grow-0">
+                <div className="ml-0 mt-4 flex flex-shrink-0 flex-grow px-2 sm:ml-4 lg:ml-4 lg:flex-grow-0">
                   <i
-                    className={`fas fa-box text-5xl lg:text-[5rem] ${
+                    className={`fas fa-box text-4xl sm:text-[4rem] lg:text-[5rem] ${
                       orderState[0] ? "text-blue-700" : "text-white"
                     }`}
                   ></i>
                 </div>
-                <div className="mt-4 ml-4 flex flex-shrink-0 flex-grow px-2 lg:ml-4 lg:flex-grow-0">
-                  <i className="fas fa-arrow-right text-5xl text-white lg:text-[5rem]"></i>
+                <div className="mt-4 ml-0 flex flex-shrink-0 flex-grow px-2 sm:ml-4 lg:ml-4 lg:flex-grow-0">
+                  <i className="fas fa-arrow-right text-4xl text-white sm:text-[4rem] lg:text-[5rem]"></i>
                 </div>
-                <div className="mt-4 ml-4 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
+                <div className="mt-4 ml-0 flex flex-shrink-0 flex-grow sm:ml-4 lg:ml-4 lg:flex-grow-0">
                   <i
-                    className={`fas fa-truck text-5xl lg:text-[5rem] ${
+                    className={`fas fa-truck text-4xl sm:text-[4rem] lg:text-[5rem] ${
                       orderState[1] ? "text-blue-700" : "text-white"
                     }`}
                   ></i>
                 </div>
-                <div className="mt-4 ml-4 flex flex-shrink-0 flex-grow px-2 lg:ml-4  lg:flex-grow-0">
-                  <i className="fas fa-arrow-right text-5xl text-white lg:text-[5rem]"></i>
+                <div className="mt-4 ml-0 flex flex-shrink-0 flex-grow px-2 sm:ml-4  lg:ml-4 lg:flex-grow-0">
+                  <i className="fas fa-arrow-right text-4xl text-white sm:text-[4rem] lg:text-[5rem]"></i>
                 </div>
-                <div className="mt-4 ml-0 flex flex-shrink-0 flex-grow px-2 lg:ml-4  lg:flex-grow-0">
+                <div className="mt-4 ml-0 flex flex-shrink-0 flex-grow px-2 sm:ml-4 lg:ml-4 lg:flex-grow-0">
                   <i
-                    className={`fas fa-box-open text-5xl lg:text-[5rem] ${
+                    className={`fas fa-box-open text-4xl sm:text-[4rem] lg:text-[5rem] ${
                       orderState[2] ? "text-blue-700" : "text-white"
                     }`}
                   ></i>
                 </div>
               </div>
               {/* //Show Order Details as list */}
-              <div className="mb-8 mt-8 flex gap-6 ">
+              <div className="mb-8 mt-8 flex gap-6 lg:mt-12 ">
                 <button
                   type="button"
                   onClick={returnBtnHandle}

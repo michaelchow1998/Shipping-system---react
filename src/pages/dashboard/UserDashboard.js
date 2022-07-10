@@ -56,30 +56,30 @@ export default function UserDashboard() {
     <div className="flex flex-col">
       <Breadcrumbs pages={pages} />
       {/* Side bar */}
-      <div className="mx-auto flex h-full w-full max-w-screen-xl space-x-4 bg-gray-100">
-        <div className="flex h-[100%] w-[20%] min-w-min flex-grow  flex-col">
+      <div className="mx-auto flex h-full w-full max-w-screen-xl flex-col space-x-4 bg-gray-100 lg:flex-row">
+        <div className="flex h-[100%] min-w-min flex-grow flex-col lg:w-[20%]">
           <div
-            className="flex h-[100%] flex-col items-center space-y-1 bg-slate-900 pb-[660px]"
+            className="flex h-[10%] flex-row items-center gap-2 space-y-1 bg-slate-900 lg:h-[100%] lg:flex-col lg:gap-0 lg:pb-[660px]"
             aria-label="Sidebar"
           >
-            <div className="flex w-[100%] items-center justify-center bg-slate-800 py-8 text-xl font-bold text-white hover:bg-slate-600 ">
+            <div className="flex w-[15%] items-center justify-center bg-slate-800  py-4 font-bold text-white hover:bg-slate-600 lg:w-[100%] lg:py-8 lg:text-xl ">
               <button onClick={relatedHandler}>Related</button>
             </div>
-            <div className="flex w-[100%] items-center justify-center bg-slate-800 py-8 text-xl font-bold text-white hover:bg-slate-600 ">
+            <div className="flex w-[15%] items-center justify-center bg-slate-800 py-4  font-bold text-white hover:bg-slate-600 lg:w-[100%] lg:py-8 lg:text-xl ">
               <button onClick={sentHandler}>Sent</button>
             </div>
-            <div className="flex w-[100%] items-center justify-center bg-slate-800 py-8 text-xl font-bold text-white hover:bg-slate-600 ">
+            <div className="flex w-[22%] items-center justify-center bg-slate-800 py-4  font-bold text-white hover:bg-slate-600 lg:w-[100%] lg:py-8 lg:text-xl ">
               <button onClick={receiptedHandler}>Receipted</button>
             </div>
-            <div className="flex w-[100%] items-center justify-center bg-slate-800 py-8 text-xl font-bold text-white hover:bg-slate-600 ">
+            <div className="flex w-[20%] items-center justify-center bg-slate-800 py-4  font-bold text-white hover:bg-slate-600 lg:w-[100%] lg:py-8 lg:text-xl ">
               <button onClick={finishedHandler}>Finished</button>
             </div>
-            <div className="flex w-[100%] items-center justify-center bg-slate-800 py-8 text-xl font-bold text-white hover:bg-slate-600 ">
+            <div className="flex w-[22%] items-center justify-center bg-slate-800 py-4  font-bold text-white hover:bg-slate-600 lg:w-[100%] lg:py-8 lg:text-xl ">
               <button onClick={unfinishedHandler}>Unfinished</button>
             </div>
           </div>
         </div>
-        <div className="w-[70%]">
+        <div className="mt-3 w-full lg:mt-0 lg:w-[70%]">
           {searched && (
             <DetailsBox setSearched={setSearched} searchId={searchId} />
           )}

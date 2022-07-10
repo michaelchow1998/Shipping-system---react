@@ -23,19 +23,19 @@ export default function OrdersList({
                   <tr>
                     <th
                       scope="col"
-                      className="py-3.5 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-10"
+                      className="py-3.5 pr-3 pl-8 text-left text-sm font-semibold text-gray-900 sm:pl-10"
                     >
                       Search Id
                     </th>
                     <th
                       scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                      className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:block"
                     >
                       Create Date
                     </th>
                     <th
                       scope="col"
-                      className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                      className="px-3 py-3.5 pl-8 text-left text-sm font-semibold text-gray-900 sm:pl-6"
                     >
                       Role
                     </th>
@@ -56,7 +56,7 @@ export default function OrdersList({
                           </div>
                         </div>
                       </td>
-                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                      <td className="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 lg:block">
                         <div className="text-gray-900">
                           {data[order].createdDate}
                         </div>
@@ -72,7 +72,7 @@ export default function OrdersList({
                           {data[order].finished ? "Finished" : "Unfinished"}
                         </span>
                       </td>
-                      <td className="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+                      <td className="first-letter: relative whitespace-nowrap py-4 pr-4 text-sm font-medium sm:pr-6 lg:pl-3 lg:text-right">
                         <button
                           onClick={() => {
                             setSearchId(data[order].searchId);

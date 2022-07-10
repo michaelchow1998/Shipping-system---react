@@ -10,7 +10,7 @@ export default function Register() {
     },
     {
       name: "Register",
-      href: "register",
+      href: "",
       current: true,
     },
   ];

@@ -24,21 +24,25 @@ function App() {
   const [isLogin, setIsLogin] = useState(false);
   const [isUserLogin, setIsUserLogin] = useState(false);
   const [isStaffLogin, setIsStaffLogin] = useState(false);
+  const [firstLogin, setFirstLogin] = useState(false);
 
   useEffect(() => {
     try {
-      refreshToken();
-      if (localStorage.getItem("access_token")) {
-        setIsLogin(true);
-        if (localStorage.getItem("roles") === "[ROLE_ADMIN]") {
-          setIsStaffLogin(true);
-          setIsUserLogin(true);
-        }
-        if (localStorage.getItem("roles") === "[ROLE_STAFF]") {
-          setIsStaffLogin(true);
-        }
-        if (localStorage.getItem("roles") === "[ROLE_USER]") {
-          setIsUserLogin(true);
+      if (firstLogin === false) {
+        refreshToken();
+        if (localStorage.getItem("access_token")) {
+          setIsLogin(true);
+          if (localStorage.getItem("roles") === "[ROLE_ADMIN]") {
+            setIsStaffLogin(true);
+            setIsUserLogin(true);
+          }
+          if (localStorage.getItem("roles") === "[ROLE_STAFF]") {
+            setIsStaffLogin(true);
+          }
+          if (localStorage.getItem("roles") === "[ROLE_USER]") {
+            setIsUserLogin(true);
+          }
+          setFirstLogin(true);
         }
       }
     } catch (e) {

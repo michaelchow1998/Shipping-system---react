@@ -43,13 +43,14 @@ export default function SearchBar({ setSearched, setSearchId }) {
           type="text"
           name="search"
           id="search"
+          size="35"
           onChange={handleChange}
           value={filterDate}
           placeholder="Enter order search ID"
-          className="block w-full rounded-md border-gray-300 py-1.5 pr-36 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+          className="w-full rounded-md border-gray-300 py-1.5 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
         />
       </div>
-      <div className="mb-48 mt-4 ml-12 flex gap-6 lg:ml-8">
+      <div className="mb-48 mt-4 ml-3 flex gap-6 sm:ml-14 lg:ml-8">
         <button
           onClick={resetBtnHandle}
           type="button"

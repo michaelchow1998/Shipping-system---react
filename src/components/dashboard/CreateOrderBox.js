@@ -46,8 +46,8 @@ export default function CreateOrderBox() {
 
   return (
     <>
-      <div className="mt-16 flex items-center justify-center ">
-        <div className="flex w-[50%] flex-col">
+      <div className="mt-16 flex items-center justify-center">
+        <div className="flex w-[100%] flex-col sm:w-[80%] lg:w-[50%]">
           <div className="">
             {isSuccess && <Alerts message={"Create Order Success"} />}
             <div className=" mt-8 rounded-t-2xl bg-gray-800 px-2 py-4 sm:px-0">
@@ -59,7 +59,7 @@ export default function CreateOrderBox() {
               </p>
             </div>
           </div>
-          <div className="mt-5 md:col-span-2 md:mt-0">
+          <div className="md:col-span-2 md:mt-0 ">
             <form onSubmit={handleSubmit}>
               <div className="overflow-hidden shadow sm:rounded-md">
                 <div className="bg-white px-4 py-5 sm:p-6">

@@ -80,7 +80,7 @@ export default function ChangePwForm() {
   return (
     <>
       <div className="mt-16 flex items-center justify-center ">
-        <div className="flex w-[50%] flex-col">
+        <div className="flex w-[80%] flex-col lg:w-[50%]">
           <div className="">
             {isSuccess && <Alerts />}
             <div className=" mt-8 rounded-t-2xl bg-gray-800 px-2 py-4 sm:px-0">

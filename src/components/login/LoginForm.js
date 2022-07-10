@@ -182,7 +182,7 @@ export default function LoginForm({
               <div>
                 <Link
                   to="register"
-                  className="ml-28 inline-flex w-56 justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50 lg:ml-16"
+                  className="ml-16 inline-flex w-56 justify-center rounded-md border border-gray-300 bg-white py-2 px-4 text-sm font-medium text-gray-500 shadow-sm hover:bg-gray-50 lg:ml-20"
                 >
                   <p className=" px-2">Create Account now</p>
                 </Link>
